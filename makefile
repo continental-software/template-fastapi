@@ -14,10 +14,16 @@ run:
 	poetry run uvicorn app:app
 
 terminal:
-	docker compose exec -it money bash
+	docker compose exec -it api bash
 
 clean:
 	rm -rf .venv __pycache__ .pytest_cache .coverage .mypy_cache
+
+add-migration:
+	docker compose exec api alembic revision --autogenerate -m "$(name)"
+
+add-lib:
+	docker compose exec api poetry add $(name)
 
 .DEFAULT_GOAL := help
 
