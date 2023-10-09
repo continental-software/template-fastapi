@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:15.3-alpine3.18
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=root
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
